@@ -1,0 +1,32 @@
+{
+  "name": "pdxPopNow_Server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --runInBand --detectOpenHandles",
+    "start": "node server.js",
+    "start:watch": "nodemon server.js",
+    "test:watch": "jest --watch --verbose --runInBand",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "seed": "node seed.js"
+  },
+  "author": "Tyler Corbett, Johnny Cruz, Michael Elliott, Sophie Graham, Ivan Poblete",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "jest": "^24.0.0",
+    "nodemon": "^1.18.9",
+    "supertest": "^3.4.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chance": "^1.0.18",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.9",
+    "superagent": "^4.1.0"
+  }
+}
