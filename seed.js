@@ -2,9 +2,9 @@ require('dotenv').config();
 require('./lib/utils/connect')();
 
 const mongoose = require('mongoose');
-const seedData = require('./lib/utils/seedData');
+const data = require('./lib/utils/csvParser');
 
-seedData({})
+data({})
   .then(() => {
     // eslint-disable-next-line no-console
     return console.log('***SEED DATA DEPLOYED & INITIALIZED***');
