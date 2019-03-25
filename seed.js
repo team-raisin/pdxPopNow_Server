@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('./lib/utils/connect')();
+
 const mongoose = require('mongoose');
 const data = require('./lib/utils/csvParser');
 
