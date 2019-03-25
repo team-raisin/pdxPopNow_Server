@@ -25,3 +25,4 @@ module.exports = (dbUri = process.env.MONGODB_URI) => {
 
   mongoose.connection.on('close', log('close', dbUri));
 };
+
