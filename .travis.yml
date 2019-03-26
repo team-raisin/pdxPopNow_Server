@@ -1,6 +1,13 @@
 language: node_js
-node_js: "node"
+node_js: node
 services:
-  - mongodb
+- mongodb
 env:
-  - MONGODB_URI=mongodb://localhost:27017/directory AUTH_SECRET=MONKEYBANANASPLITS
+- MONGODB_URI=mongodb://localhost:27017/directory AUTH_SECRET=MONKEYBANANASPLITS
+deploy:
+  provider: heroku
+  app:
+    dev: popnow-server
+  api_key:
+    secure: AjMya1oSWeW/1EoH8693vrUkNITi4hbYHpnmFeCdRIw8bI3tnc1EAUPat1YRc88F6O9/3z3TRsmiJL1b0vzU2LFn6zSj6Mkmw3HqL45ZO76l7y3qcMazl6MBvDbqXe62ufSa7FywUd+tzKMZn9+q/1vJDKo4sAt0xY+2xphAJ1ankc6jBZ/htTXjxs4pDgYriwEhh+EZtQ0YZ8ARt74OuhwvmJYSN6B1uceJFBWpwS4RgTjWdU8fI66qwuRG2Ld1Fx10Va/HTxvXhNy3W0+BGOuSp2U9bzmBbWkJltxB8gWFHdNDk7QXc5cEDz6nGNCYHKU6g5LKuCrf9Z00+8sQwNPnwIf6PuCNcPgl9rRSFSJx+aMV2GRRlaLz1WG6nNz97GFRfu7qJTqQNag0UJ6ymXmswrGCkuGC7RSLdcKJn7sur4C12J3t3z17k/GQAPhFhyE5clU6gPnrKA4oe0RUf4vraRnEzLcjt0xENATmW4NbfdPnns1ZFsdA3Ow9LKVDJKLQ/t/SFlHG+IxLVjIVi30ne6sN0RUxiyWUV0n/S5lBck8Rm2BcfRXJPXFcOMxRam/5os5EgF41S/W5O2kQJRaF0rf+WT/eFNAQgRSJMP93B4f0GdkHUpnHwrRZY7zrE+6P247A+PUCOwEB9qYZxrDrnfSKTlevSwKt3ROqYiM=
+  
