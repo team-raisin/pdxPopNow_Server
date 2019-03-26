@@ -13,6 +13,13 @@ const artist = {
   facebook: 'www.facebook.com/taylor_swift',
   bandcamp: 'www.bandcamp.com/taylor_swift',
   twitter: 'www.twitter.com/taylor_swift',
+  soundcloud: 'taylor@tswift.com',
+  youtube: 'taylor@tswift.com',
+  vimeo: 'taylor@tswift.com',
+  img: 'taylor@tswift.com',
+  instagram: 'taylor@tswift.com',
+  contact: 'taylor@tswift.com',
+  description: 'taylor@tswift.com',
   email: 'taylor@tswift.com',
   genre: []
 };
@@ -37,6 +44,13 @@ describe('artist route', () => {
         facebook: 'www.facebook.com/taylor_swift',
         bandcamp: 'www.bandcamp.com/taylor_swift',
         twitter: 'www.twitter.com/taylor_swift',
+        soundcloud: 'www.soundcloud.com/taylor_swift',
+        youtube: 'www.youtube.com/taylor_swift',
+        vimeo: 'www.vimeo.com/taylor_swift',
+        img: 'www.picture.com',
+        instagram: 'www.instagram.com/taylor_swift',
+        contact: 'Taylor Swift',
+        description: 'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.',
         email: 'taylor@tswift.com',
         genre: []
       })
@@ -48,6 +62,13 @@ describe('artist route', () => {
           facebook: 'www.facebook.com/taylor_swift',
           bandcamp: 'www.bandcamp.com/taylor_swift',
           twitter: 'www.twitter.com/taylor_swift',
+          soundcloud: 'www.soundcloud.com/taylor_swift',
+          youtube: 'www.youtube.com/taylor_swift',
+          vimeo: 'www.vimeo.com/taylor_swift',
+          img: 'www.picture.com',
+          instagram: 'www.instagram.com/taylor_swift',
+          contact: 'Taylor Swift',
+          description: 'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.',
           email: 'taylor@tswift.com',
           genre: []
         });
@@ -76,6 +97,13 @@ describe('artist route', () => {
         facebook: 'www.facebook.com/taylor_swift',
         bandcamp: 'www.bandcamp.com/taylor_swift',
         twitter: 'www.twitter.com/taylor_swift',
+        soundcloud: 'www.soundcloud.com/taylor_swift',
+        youtube: 'www.youtube.com/taylor_swift',
+        vimeo: 'www.vimeo.com/taylor_swift',
+        img: 'www.picture.com',
+        instagram: 'www.instagram.com/taylor_swift',
+        contact: 'Taylor Swift',
+        description: 'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.',
         email: 'taylor@tswift.com',
         genre: []
       })
