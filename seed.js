@@ -12,4 +12,3 @@ data({})
   .finally(() => {
     return mongoose.connection.close();
   });
-
