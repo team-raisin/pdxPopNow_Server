@@ -1,6 +1,5 @@
 require('dotenv').config();
 require('../../lib/utils/connect')();
-const mongoose = require('mongoose');
 const Artist = require('../../lib/models/Artist');
 const { Types, connection } = require('mongoose');
 

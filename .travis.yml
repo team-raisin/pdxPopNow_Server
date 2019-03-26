@@ -1,6 +1,12 @@
-language: node_js
+language: node
 node_js: "node"
 services:
   - mongodb
+deploy: 
+  provider: heroku
+  app:
+    master: popnow-server
+  api_key: 
+    secure: 
 env:
   - MONGODB_URI=mongodb://localhost:27017/directory AUTH_SECRET=MONKEYBANANASPLITS

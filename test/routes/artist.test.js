@@ -1,7 +1,6 @@
 require('dotenv').config();
 require('../../lib/utils/connect')();
 
-const connection = require('mongoose');
 const request = require('supertest');
 const app = require('../../lib/app');
 const mongoose = require('mongoose');
