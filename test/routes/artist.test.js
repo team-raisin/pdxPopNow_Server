@@ -9,17 +9,26 @@ const mongoose = require('mongoose');
 jest.mock('../../lib/services/auth.js');
 jest.mock('../../lib/middleware/ensureAuth.js');
 
+const artist = {
+  artistName: 'Taylor Swift',
+  facebook: 'www.facebook.com/taylor_swift',
+  bandcamp: 'www.bandcamp.com/taylor_swift',
+  twitter: 'www.twitter.com/taylor_swift',
+  email: 'taylor@tswift.com',
+  genre: []
+};
+
 describe('artist route', () => {
   
-  // beforeEach(done => {
-  //   return mongoose.connection.dropDatabase(() => {
-  //     done();
-  //   });
-  // });
+  beforeEach(done => {
+    return mongoose.connection.dropDatabase(() => {
+      done();
+    });
+  });
 
-  // afterAll((done) => {
-  //   mongoose.connection.close(done);
-  // });
+  afterAll((done) => {
+    mongoose.connection.close(done);
+  });
 
   it('can create an artist', () => {
     return request(app)
@@ -48,10 +57,15 @@ describe('artist route', () => {
 
   it('can get all artists', () => {
     return request(app)
-      .get('/artist')
-      .then(res => res.body)
-      .then(artists => {
-        expect(artists);
+      .post('/artist')
+      .send(artist)
+      .then(() => {
+        return request(app)
+          .get('/artist')
+          .then(res => res.body)
+          .then(artists => {
+            expect(artists).toHaveLength(1);
+          });
       });
   });
 
