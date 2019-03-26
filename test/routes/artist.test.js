@@ -11,15 +11,15 @@ jest.mock('../../lib/middleware/ensureAuth.js');
 
 describe('artist route', () => {
   
-  beforeEach(done => {
-    return mongoose.connection.dropDatabase(() => {
-      done();
-    });
-  });
+  // beforeEach(done => {
+  //   return mongoose.connection.dropDatabase(() => {
+  //     done();
+  //   });
+  // });
 
-  afterAll((done) => {
-    mongoose.connection.close(done);
-  });
+  // afterAll((done) => {
+  //   mongoose.connection.close(done);
+  // });
 
   it('can create an artist', () => {
     return request(app)
@@ -46,11 +46,33 @@ describe('artist route', () => {
       });
   });
 
-  // it('can get all artists', () => {
+  it('can get all artists', () => {
+    return request(app)
+      .get('/artist')
+      .then(res => res.body)
+      .then(artists => {
+        expect(artists);
+      });
+  });
 
-  // });
-
-  // it('can get artist by id and will send a 404 if no matches', () => {
-
-  // });
+  it('can get artist by id and will send a 404 if no matches', () => {
+    return request(app)
+      .post('/')
+      .send({
+        artistName: 'Taylor Swift',
+        facebook: 'www.facebook.com/taylor_swift',
+        bandcamp: 'www.bandcamp.com/taylor_swift',
+        twitter: 'www.twitter.com/taylor_swift',
+        email: 'taylor@tswift.com',
+        genre: []
+      })
+      .then(artist => {
+        const id = artist._id;
+        return request(app)
+          .get(`/${id}`)
+          .then(res => {
+            expect(res.body._id).toEqual(artist._id);
+          });
+      });
+  });
 });
