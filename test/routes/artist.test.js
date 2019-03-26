@@ -71,7 +71,7 @@ describe('artist route', () => {
 
   it('can get artist by id and will send a 404 if no matches', () => {
     return request(app)
-      .post('/')
+      .post('/artist')
       .send({
         artistName: 'Taylor Swift',
         facebook: 'www.facebook.com/taylor_swift',
