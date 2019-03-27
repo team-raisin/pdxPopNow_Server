@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('../../lib/utils/connect')();
+const Artist = require('../../lib/models/Artist');
 
 const request = require('supertest');
 const app = require('../../lib/app');
@@ -7,6 +8,8 @@ const mongoose = require('mongoose');
 
 jest.mock('../../lib/services/auth.js');
 jest.mock('../../lib/middleware/ensureAuth.js');
+
+
 
 const artist = {
   artistName: 'Taylor Swift',
@@ -25,6 +28,10 @@ const artist = {
 };
 
 describe('artist route', () => {
+  const createArtist = (artistName, email) => {
+    return Artist.create({ artistName, email })
+      .then(artist => ({ ...artist, _id: artist._id.toString() }));
+  };
   
   beforeEach(done => {
     return mongoose.connection.dropDatabase(() => {
@@ -113,6 +120,28 @@ describe('artist route', () => {
           .get(`/${id}`)
           .then(res => {
             expect(res.body._id).toEqual(artist._id);
+          });
+      });
+  });
+
+  it('can find a artist by id and update', () => {
+    return createArtist('taylor', 'taylor@test.com')
+      .then(createdArtist => {
+        return request(app)
+          .put(`/artist/${createdArtist._id}`)
+          .send({
+            artistName: 'Taylor Swift',
+            email: 'taylor@test.com',
+            genre: ['rock']
+          })
+          .then(res => {
+            expect(res.body).toEqual({
+              artistName: 'Taylor Swift',
+              email: 'taylor@test.com',
+              genre: ['rock'],
+              _id: expect.any(String),
+              __v: 0
+            });
           });
       });
   });
