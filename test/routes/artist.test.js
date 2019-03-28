@@ -9,8 +9,6 @@ const mongoose = require('mongoose');
 jest.mock('../../lib/services/auth.js');
 jest.mock('../../lib/middleware/ensureAuth.js');
 
-
-
 const artist = {
   artistName: 'Taylor Swift',
   facebook: 'www.facebook.com/taylor_swift',
@@ -28,8 +26,36 @@ const artist = {
 };
 
 describe('artist route', () => {
-  const createArtist = (artistName, email) => {
-    return Artist.create({ artistName, email })
+  const createArtist = (
+    artistName,
+    facebook,
+    bandcamp,
+    twitter,
+    email,
+    contact, 
+    soundcloud,
+    youtube,
+    vimeo,
+    instagram,
+    img,
+    genre,
+    description
+  ) => {
+    return Artist.create({ 
+      artistName,
+      facebook,
+      bandcamp,
+      twitter,
+      email,
+      contact, 
+      soundcloud,
+      youtube,
+      vimeo,
+      instagram,
+      img,
+      genre,
+      description 
+    })
       .then(artist => ({ ...artist, _id: artist._id.toString() }));
   };
   
@@ -125,20 +151,53 @@ describe('artist route', () => {
   });
 
   it('can find a artist by id and update', () => {
-    return createArtist('taylor', 'taylor@test.com')
+    return createArtist(
+      'taylor', 
+      'taylor@test.com',
+      'www.facebook.com/taylor_swift',
+      'www.bandcamp.com/taylor_swift',
+      'www.twitter.com/taylor_swift',
+      'www.soundcloud.com/taylor_swift',
+      'www.youtube.com/taylor_swift',
+      'www.vimeo.com/taylor_swift',
+      'www.picture.com',
+      'www.instagram.com/taylor_swift',
+      'Taylor Swift',
+      'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.'
+    )
       .then(createdArtist => {
         return request(app)
           .put(`/artist/${createdArtist._id}`)
           .send({
             artistName: 'Taylor Swift',
             email: 'taylor@test.com',
-            genre: ['rock']
+            genre: ['rock'],
+            facebook: 'www.facebook.com/taylor_swift',
+            bandcamp: 'www.bandcamp.com/taylor_swift',
+            twitter: 'www.twitter.com/taylor_swift',
+            soundcloud: 'www.soundcloud.com/taylor_swift',
+            youtube: 'www.youtube.com/taylor_swift',
+            vimeo: 'www.vimeo.com/taylor_swift',
+            img: 'www.picture.com',
+            instagram: 'www.instagram.com/taylor_swift',
+            contact: 'Taylor Swift',
+            description: 'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.',
           })
           .then(res => {
             expect(res.body).toEqual({
               artistName: 'Taylor Swift',
               email: 'taylor@test.com',
               genre: ['rock'],
+              facebook: 'www.facebook.com/taylor_swift',
+              bandcamp: 'www.bandcamp.com/taylor_swift',
+              twitter: 'www.twitter.com/taylor_swift',
+              soundcloud: 'www.soundcloud.com/taylor_swift',
+              youtube: 'www.youtube.com/taylor_swift',
+              vimeo: 'www.vimeo.com/taylor_swift',
+              img: 'www.picture.com',
+              instagram: 'www.instagram.com/taylor_swift',
+              contact: 'Taylor Swift',
+              description: 'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.',
               _id: expect.any(String),
               __v: 0
             });
