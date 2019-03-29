@@ -13,7 +13,7 @@ const artist = {
   facebook: 'www.facebook.com/taylor_swift',
   bandcamp: 'www.bandcamp.com/taylor_swift',
   twitter: 'www.twitter.com/taylor_swift',
-  soundcloud: 'taylor@tswift.com',
+  soundcloud: 'https://soundcloud.com/cloudy-october',
   youtube: 'taylor@tswift.com',
   vimeo: 'taylor@tswift.com',
   img: 'taylor@tswift.com',
@@ -53,6 +53,7 @@ describe('artist route', () => {
         description: 'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.',
         email: 'taylor@tswift.com',
         genre: []
+      
       })
       .then(res => {
         delete res.body.__v;
@@ -70,7 +71,8 @@ describe('artist route', () => {
           contact: 'Taylor Swift',
           description: 'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.',
           email: 'taylor@tswift.com',
-          genre: []
+          genre: [],
+          soundcloudId: expect.any(String)
         });
       });
   });
