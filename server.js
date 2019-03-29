@@ -2,12 +2,7 @@ require('dotenv').config();
 require('./lib/utils/connect')();
 
 const app = require('./lib/app');
-
-const PORT = 2000 || process.env.PORT;
-
-
-
-
+const PORT = process.env.PORT || 2000;
 
 // eslint-disable-next-line no-console
-app.listen(2000, () => console.log(`Listening on ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
