@@ -5,6 +5,8 @@ const request = require('supertest');
 const app = require('../../lib/app');
 const mongoose = require('mongoose');
 
+// Why do you need to mock these things?
+// These modules are never used.
 jest.mock('../../lib/services/auth.js');
 jest.mock('../../lib/middleware/ensureAuth.js');
 
@@ -25,7 +27,7 @@ const artist = {
 };
 
 describe('artist route', () => {
-  
+
   beforeEach(done => {
     return mongoose.connection.dropDatabase(() => {
       done();
@@ -53,7 +55,7 @@ describe('artist route', () => {
         description: 'Skateboard narwhal tousled echo park. Venmo forage viral coloring book man bun chicharrones synth letterpress. Cronut skateboard hashtag tofu pitchfork franzen, forage kale chips snackwave jean shorts. Prism activated charcoal skateboard cliche, chartreuse pabst mumblecore biodiesel VHS lomo vegan knausgaard.',
         email: 'taylor@tswift.com',
         genre: []
-      
+
       })
       .then(res => {
         delete res.body.__v;
